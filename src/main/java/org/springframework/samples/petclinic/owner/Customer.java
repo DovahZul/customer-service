@@ -73,7 +73,7 @@ public class Customer extends Person {
     private String status;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Set<Account> accounts;
+    public Set<Account> accounts;
     
     @ManyToOne
     @JoinColumn(name = "workers_id")

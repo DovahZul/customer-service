@@ -77,9 +77,9 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
      */
     void save(Customer customer);
 
-    @Query("SELECT account FROM Account account")
+    @Query("SELECT account FROM Account account WHERE customer.id =: id")
     @Transactional(readOnly = true)
-	List<Account> findAccounts();
+	List<Account> findAccounts(@Param("id") Integer id);
 
 	
 

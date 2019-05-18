@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
@@ -41,6 +43,8 @@ import java.util.Map;
  */
 @Controller
 class CustomerController {
+	
+	private Integer currentDiaplayedCustomerId = 0;
 
     private static final String VIEWS_CUSTOMERS_CREATE_OR_UPDATE_FORM = "customers/createOrUpdateCustomerForm";
     private final CustomerRepository customers;
@@ -142,9 +146,15 @@ class CustomerController {
     	return customers.findWorkers();
     }
     
-    @ModelAttribute("accounts")
-    //public List<Account> populateAccounts(@PathVariable("customerId") int customerId){
-    	return customers.findAccounts();
+    //@GetMapping("/customers/{customerId}")
+    
+    @RequestMapping(value = "/customers/{usr_id}", method = RequestMethod.POST)
+    @ModelAttribute("accounts{usr_id}")
+    //@PathVariable Person person
+    public List<Account> populateAccounts(@PathVariable("usr_id") int cust_id){
+    	System.out.println("GET CUSTOMER ID: " + cust_id);
+    	return customers.findAccounts(cust_id);
+    	
     }
     
 
@@ -156,8 +166,17 @@ class CustomerController {
      */
     @GetMapping("/customers/{customerId}")
     public ModelAndView showCustomer(@PathVariable("customerId") int customerId) {
+    	
         ModelAndView mav = new ModelAndView("customers/customerDetails");
         mav.addObject(this.customers.findById(customerId));
+        mav.addObject(this.customers.findById(customerId).getAccountsInternal());
+        System.out.println("Current displayed customer id: " + currentDiaplayedCustomerId);
+        for(Account acc : this.customers.findById(customerId).getAccountsInternal())
+        {
+        	System.out.println("Account: id[" + acc.getId() + "] " + acc.getType()+" : "+acc.getBallance()+"\n");
+        }
+        //System.out.println("Accounts: " + this.customers.findById(customerId).getAccountsInternal());
+        this.currentDiaplayedCustomerId = customerId;
         return mav;
     }
     
