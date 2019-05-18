@@ -1,0 +1,49 @@
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'customers')}">
+
+<body>
+
+  <h2>Owner</h2>
+  <form th:object="${customer}" class="form-horizontal" id="add-customer-form" method="post">
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input ('First Name', 'firstName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Last Name', 'lastName', 'text')}" />
+        <input
+        th:replace="~{fragments/inputField :: input ('Passport Serial Number', 'passportSerial', 'text')}" />
+        <input
+        th:replace="~{fragments/inputField :: input ('Date of birth', 'birthDate', 'date')}" />
+        <input
+        th:replace="~{fragments/inputField :: input ('Mobile phone', 'mobilePhone', 'text')}" />
+        <input
+        th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}" />
+        <input
+        th:replace="~{fragments/inputField :: input ('Status', 'status', 'text')}" />
+       <input
+        th:replace="~{fragments/selectField :: select ('Worker', 'type', ${types})}" />
+		
+	
+		
+                
+        
+    </div>
+  
+        INSERT INTO customers VALUES (6, 'Atlas', 'Lester','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1);
+    
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          th:with="text=${customer['new']} ? 'Add Customer' : 'Update Customer'"
+          class="btn btn-default" type="submit" th:text="${text}">Add
+          Owner</button>
+      </div>
+    </div>
+    
+  
+
+    
+  </form>
+  
+</body>
+</html>

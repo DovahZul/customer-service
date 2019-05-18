@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>My First Bootstrap Page</h1>
+  <p>This is some text.</p>
+</div>
+ <h2>Customers</h2>
+
+ <table id="customers" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Name</th>
+            <th style="width: 150px;">Mobile</th>
+            <th style="width: 150px;">Passport serial</th>
+            <th style="width: 150px;">Address</th>
+            <th style="width: 150px;">Status</th>
+
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="customer : ${selections}">
+				<td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.firstName + ' ' + customer.lastName}"/></a>
+				  </td>	
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.mobilePhone}"/></a>
+				  </td>
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.passportSerial}"/></a>
+				  </td>
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.address}"/></a>
+				  </td>
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.status}"/></a>
+				  </td>
+             
+
+          </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-default" th:href="@{/customers/new}">Add Customer</a>
+     
+
+</body>
+</html> 
