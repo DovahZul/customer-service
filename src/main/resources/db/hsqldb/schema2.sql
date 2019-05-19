@@ -17,7 +17,7 @@ CREATE TABLE types (
   id   INTEGER IDENTITY PRIMARY KEY,
   name VARCHAR(80)
  );
- CREATE INDEX currenct_types_name ON currency_types (name);
+ CREATE INDEX currency_types_name ON currency_types (name);
 
 CREATE TABLE workers (
 
@@ -38,7 +38,7 @@ mobile_phone VARCHAR(20),
 address VARCHAR(50),
 status VARCHAR(50),
 workers_id	INTEGER,
-type_id INTEGER
+type_id INTEGER NOT NULL
 );
 ALTER TABLE customers ADD CONSTRAINT fk_customer_helper FOREIGN KEY (workers_id) REFERENCES workers (id);
 
@@ -49,9 +49,9 @@ CREATE TABLE accounts(
 id INTEGER IDENTITY PRIMARY KEY,
 currency_type_id INTEGER NOT NULL,
 ballance DOUBLE NOT NULL,
-customer_id INTEGER NOT NULL
+customer_id INTEGER
 );
-ALTER TABLE accounts ADD CONSTRAINT fk_account_owner FOREIGN KEY (customer_id) REFERENCES customers (id);
+ALTER TABLE accounts ADD CONSTRAINT fk_account_customer FOREIGN KEY (customer_id) REFERENCES customers (id);
 
 
 

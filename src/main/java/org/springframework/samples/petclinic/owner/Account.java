@@ -39,14 +39,6 @@ import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.model.NamedEntity;
 import org.springframework.samples.petclinic.visit.Visit;
 
-/**
- * Simple business object representing a pet.
- *
- * @author Ken Krebs
- * @author Juergen Hoeller
- * @author Sam Brannen
- */
-
 /*
 
  * CREATE TABLE accounts(
@@ -67,7 +59,7 @@ public class Account extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "currency_type_id")
-    private CurrencyType type;
+    private CurrencyType currencyType;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -75,10 +67,6 @@ public class Account extends BaseEntity {
     
     @Column(name = "ballance")
     private double ballance;
-
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "petId", fetch = FetchType.EAGER)
-    //private Set<Visit> visits = new LinkedHashSet<>();
-
     
     public Double getBallance() {
         return this.ballance;
@@ -89,45 +77,20 @@ public class Account extends BaseEntity {
     } 
  
 
-    public CurrencyType getType() {
-        return this.type;
+    public CurrencyType getCurrencyType() {
+        return this.currencyType;
     }
 
-    public void setType(CurrencyType type) {
-        this.type = type;
+    public void setCurrencyType(CurrencyType type) {
+        this.currencyType = type;
     }
 
     public Customer getCustomer() {
         return this.customer;
     }
 
-    protected void setCustomer(Customer owner) {
-        this.customer = owner;
+    protected void setCustomer(Customer customer) {
+        this.customer = customer;
     }
-
-    /*
-    protected Set<Visit> getVisitsInternal() {
-        if (this.visits == null) {
-            this.visits = new HashSet<>();
-        }
-        return this.visits;
-    }
-
-    protected void setVisitsInternal(Set<Visit> visits) {
-        this.visits = visits;
-    }
-
-    public List<Visit> getVisits() {
-        List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
-        PropertyComparator.sort(sortedVisits,
-                new MutableSortDefinition("date", false, false));
-        return Collections.unmodifiableList(sortedVisits);
-    }
-
-    public void addVisit(Visit visit) {
-        getVisitsInternal().add(visit);
-        visit.setPetId(this.getId());
-    }
-    */
 
 }

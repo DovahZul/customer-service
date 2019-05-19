@@ -160,10 +160,10 @@ public class Customer extends Person {
         this.accounts = accounts;
     }
 
-    public List<Account> getCredits() {
+    public List<Account> getAccounts() {
         List<Account> sortedAccounts = new ArrayList<>(getAccountsInternal());
         PropertyComparator.sort(sortedAccounts,
-                new MutableSortDefinition("type", true, true));
+                new MutableSortDefinition("id", true, true));
         return Collections.unmodifiableList(sortedAccounts);
     }
 

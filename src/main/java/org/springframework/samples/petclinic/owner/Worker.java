@@ -35,6 +35,6 @@ import org.springframework.samples.petclinic.model.Person;
 public class Worker extends Person {
 	
 	public String getFullName() {
-		return this.getLastName()+", "+ this.getFirstName();
+		return this.getLastName() + this.getFirstName();
 	}
 }

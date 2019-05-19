@@ -135,14 +135,6 @@ class CustomerController {
     
     @ModelAttribute("workers")
     public List<Worker> populateWorkers() {
-    	/*
-    	List<String> converter = new ArrayList<String>();
-    	for (Worker w : customers.findWorkers())
-        {
-    		converter.add(w.getFullName());
-        }
-    	return converter;
-    	*/
     	return customers.findWorkers();
     }
     
@@ -173,7 +165,7 @@ class CustomerController {
         System.out.println("Current displayed customer id: " + currentDiaplayedCustomerId);
         for(Account acc : this.customers.findById(customerId).getAccountsInternal())
         {
-        	System.out.println("Account: id[" + acc.getId() + "] " + acc.getType()+" : "+acc.getBallance()+"\n");
+        	System.out.println("Account: id[" + acc.getId() + "] " + acc.getCurrencyType()+" : "+acc.getBallance()+"\n");
         }
         //System.out.println("Accounts: " + this.customers.findById(customerId).getAccountsInternal());
         this.currentDiaplayedCustomerId = customerId;

@@ -29,6 +29,9 @@
         </thead>
         <tbody>
           <tr th:each="customer : ${selections}">
+          		<td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.id}"/></a>
+			  </td>	
 				<td>
 				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.firstName + ' ' + customer.lastName}"/></a>
 				  </td>	
@@ -44,6 +47,15 @@
 				  <td>
 				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.status}"/></a>
 				  </td>
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.worker}"/></a>
+			  </td>	
+			  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.type}"/></a>
+			  </td>	
+			  <td>
+			  <a th:href="@{/customers/{id}/edit(id=${customer.id})}" class="btn btn-default">Edit</a>
+    			</td>
              
 
           </tr>

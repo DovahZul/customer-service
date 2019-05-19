@@ -28,15 +28,19 @@
         <tr>
             <th style="width: 150px;">Type</th>
             <th style="width: 150px;">Ballance</th>
+            <th style="width: 150px;">customer debug info</th>
         </tr>
         </thead>
         <tbody>
           <tr th:each="account : ${customer.accounts}">
 				<td>
-				      <a  th:text="${account.type}"/></a>
+				      <a  th:text="${account.currencyType}"/></a>
 				  </td>	
 				  <td>
 				      <a  th:text="${account.ballance}"/></a>
+				  </td>
+				  <td>
+				      <a  th:text="${account.customer}"/></a>
 				  </td>
           </tr>
         </tbody>
@@ -46,7 +50,8 @@
     
     <h2>Deposit history</h2>
     
-    
+    <a th:href="@{{id}/accounts/new(id=${customer.id})}" class="btn btn-default">Start new account!!!</a>
+    <a class="btn btn-default" th:href="@{/customers/{id}/accounts/new}">Start new account</a>
     <a class="btn btn-default" th:href="@{/customers/{id}/new}">Account new credit</a>
     <a class="btn btn-default" th:href="@{/customers/{id}/new}">Account new deposit</a>
     

@@ -21,11 +21,11 @@ INSERT INTO currency_types VALUES (5, 'YEN');
 INSERT INTO currency_types VALUES (6, 'AU USD');
 
 INSERT INTO customers VALUES (1, 'Kayden', 'Forster','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,2);
-INSERT INTO customers VALUES (2, 'Ismael', 'Mccall','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,1);
-INSERT INTO customers VALUES (3, 'Charity', 'Forrest','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,1);
-INSERT INTO customers VALUES (4, 'Hajrah', 'Buckner','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,1);
-INSERT INTO customers VALUES (5, 'Gwion', 'Powell','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,1);
-INSERT INTO customers VALUES (6, 'Atlas', 'Lester','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 1,1);
+INSERT INTO customers VALUES (2, 'Ismael', 'Mccall','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 2,1);
+INSERT INTO customers VALUES (3, 'Charity', 'Forrest','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 3,1);
+INSERT INTO customers VALUES (4, 'Hajrah', 'Buckner','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 4,1);
+INSERT INTO customers VALUES (5, 'Gwion', 'Powell','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 5,1);
+INSERT INTO customers VALUES (6, 'Atlas', 'Lester','PASSPORTSERIAL', '1867-5-5', '+12345678', 'NO MANS LAND ST.', 'ACTIVE', 5,1);
 
 
 INSERT INTO accounts VALUES (1, 3, 160, 1);

@@ -20,8 +20,11 @@
         th:replace="~{fragments/inputField :: input ('Address', 'address', 'text')}" />
         <input
         th:replace="~{fragments/inputField :: input ('Status', 'status', 'text')}" />
-       <input
-        th:replace="~{fragments/selectField :: select ('Worker', 'type', ${types})}" />
+        <input
+        th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
+         <input
+          th:replace="~{fragments/selectField :: select ('Assigned support', 'worker', ${workers})}" /> 
+       
 		
 	
 		
