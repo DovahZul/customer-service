@@ -72,7 +72,7 @@ public class Customer extends Person {
     @NotEmpty
     private String status;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true, mappedBy = "customer")
     public Set<Account> accounts;
     
     @ManyToOne

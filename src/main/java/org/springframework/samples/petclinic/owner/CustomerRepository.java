@@ -18,6 +18,7 @@ package org.springframework.samples.petclinic.owner;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
@@ -54,6 +55,13 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
     @Query("SELECT customer FROM Customer customer left join fetch customer.accounts WHERE customer.id =:id")
     @Transactional(readOnly = true)
     Customer findById(@Param("id") Integer id);
+
+    
+    //to fix: ALTER TABLE accounts ADD CONSTRAINT fk_account_customer FOREIGN KEY (customer_id) REFERENCES customers (id);
+    @Transactional
+    @Modifying
+    @Query("DELETE FROM Customer customer WHERE customer.id =:cust_id") //do not left spaces between : and values ! >_<
+	void deleteById(@Param("cust_id") Integer id);
     
     @Query("SELECT customer FROM Customer customer")
     @Transactional(readOnly = true)
@@ -80,6 +88,9 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
     @Query("SELECT account FROM Account account WHERE customer.id =: id")
     @Transactional(readOnly = true)
 	List<Account> findAccounts(@Param("id") Integer id);
+    
+    
+    
 
 	
 

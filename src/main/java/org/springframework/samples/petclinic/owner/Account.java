@@ -66,13 +66,13 @@ public class Account extends BaseEntity {
     private Customer customer;
     
     @Column(name = "ballance")
-    private double ballance;
+    private Double ballance;
     
     public Double getBallance() {
         return this.ballance;
     }
 
-    public void setType(Double value) {
+    public void setBallance(Double value) {
         this.ballance = value;
     } 
  

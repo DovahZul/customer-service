@@ -172,5 +172,23 @@ class CustomerController {
         return mav;
     }
     
+    
+    @GetMapping("/customers/{customerId}/delete")
+    public String deleteCustomer(@PathVariable("customerId") int customerId, Customer customer, BindingResult result, Map<String, Object> model) {
+
+        this.customers.deleteById(customerId);
+
+        // find owners by last name
+        Collection<Customer> results = this.customers.getAll();
+        model.put("selections", results);
+        return "homepage";
+    }
 
 }
+    
+        
+
+    
+    
+
+

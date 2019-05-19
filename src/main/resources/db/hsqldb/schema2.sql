@@ -51,7 +51,7 @@ currency_type_id INTEGER NOT NULL,
 ballance DOUBLE NOT NULL,
 customer_id INTEGER
 );
-ALTER TABLE accounts ADD CONSTRAINT fk_account_customer FOREIGN KEY (customer_id) REFERENCES customers (id);
+
 
 
 
