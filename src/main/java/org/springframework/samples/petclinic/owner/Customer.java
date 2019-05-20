@@ -73,7 +73,7 @@ public class Customer extends Person {
     private String status;
 
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true, mappedBy = "customer")
-    public Set<Account> accounts;
+    private Set<Account> accounts;
     
     @ManyToOne
     @JoinColumn(name = "workers_id")
@@ -173,6 +173,8 @@ public class Customer extends Person {
         }
         account.setCustomer(this);
     }
+    
+
     
 
     /**

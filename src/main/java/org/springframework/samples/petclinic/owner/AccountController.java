@@ -21,9 +21,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Juergen Hoeller
@@ -102,6 +104,27 @@ class AccountController {
             this.accounts.save(account);
             return "redirect:/customers/{customerId}";
         }
+    }
+    
+    @GetMapping("/accounts/{acc_id}/delete")
+    //@GetMapping("/customers/{customerId}/delete")
+    public String deleteCustomer(/*@PathVariable("customerId") int customerId,*/ @PathVariable("acc_id") int accId, Customer customer, BindingResult result, Map<String, Object> model) {
+
+    	System.out.println("-----------------------------------------------");
+    	System.out.println("Deleting account...");
+    	System.out.println("ID: "+ accounts.findById(accId).getId() +
+    			"\nCurrency type: " +  accounts.findById(accId).getCurrencyType() + 
+    			"\nBalance:" +  accounts.findById(accId).getBallance());
+    	System.out.println("-----------------------------------------------");
+    	 
+        this.accounts.deleteAccountForCustomerIdById(customer.getId(),  accId);
+        
+       
+
+        // find owners by last name
+        Collection<Account> results = this.customers.findAccounts(customer.getId());
+        model.put("accountList", results);
+        return "redirect:/customers/{customerId}";
     }
     
    

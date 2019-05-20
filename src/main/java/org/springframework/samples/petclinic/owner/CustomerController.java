@@ -166,8 +166,9 @@ class CustomerController {
         for(Account acc : this.customers.findById(customerId).getAccountsInternal())
         {
         	System.out.println("Account: id[" + acc.getId() + "] " + acc.getCurrencyType()+" : "+acc.getBallance()+"\n");
+        	
         }
-        //System.out.println("Accounts: " + this.customers.findById(customerId).getAccountsInternal());
+        System.out.println("MAV: " + mav.getModel().toString() + "\n");
         this.currentDiaplayedCustomerId = customerId;
         return mav;
     }
@@ -177,6 +178,8 @@ class CustomerController {
     public String deleteCustomer(@PathVariable("customerId") int customerId, Customer customer, BindingResult result, Map<String, Object> model) {
 
         this.customers.deleteById(customerId);
+        
+       
 
         // find owners by last name
         Collection<Customer> results = this.customers.getAll();

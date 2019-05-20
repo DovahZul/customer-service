@@ -67,7 +67,7 @@ take_date DATE NOT NULL,
 return_date DATE NOT NULL,
 status BOOLEAN NOT NULL
 );
-ALTER TABLE credits ADD CONSTRAINT fk_credit_account FOREIGN KEY (account_id) REFERENCES accounts (id);
+
 
 CREATE TABLE deposits(
 id INTEGER PRIMARY KEY,
@@ -79,7 +79,7 @@ take_date DATE NOT NULL,
 return_date DATE NOT NULL,
 status BOOLEAN NOT NULL
 );
-ALTER TABLE deposits ADD CONSTRAINT fk_deposit_account FOREIGN KEY (account_id) REFERENCES accounts (id);
+
 
 
 
