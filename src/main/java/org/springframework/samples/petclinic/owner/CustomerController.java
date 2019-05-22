@@ -60,9 +60,10 @@ class CustomerController {
     }
 
     @GetMapping("/customers/new")
-    public String initCreationForm(Map<String, Object> model) {
+    public String initCreationForm(Map<String, Object> model, Model m) {
         Customer customer = new Customer();
         model.put("customer", customer);
+        m.addAttribute("customerDetailsActive","active");
         return VIEWS_CUSTOMERS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -83,7 +84,7 @@ class CustomerController {
     }
 
     @GetMapping("/")
-    public String processFindForm(Customer customer, BindingResult result, Map<String, Object> model) {
+    public String processFindForm(Customer customer, BindingResult result, Map<String, Object> model, Model m) {
 
         // allow parameterless GET request for /owners to return all records
         if (customer.getLastName() == null) {
@@ -103,6 +104,7 @@ class CustomerController {
         } else {
             // multiple owners found
             model.put("selections", results);
+            m.addAttribute("homePageActive","active");
             return "homepage";
         }
     }
@@ -111,16 +113,18 @@ class CustomerController {
     public String initUpdateCustomerForm(@PathVariable("customerId") int customerId, Model model) {
         Customer customer = this.customers.findById(customerId);
         model.addAttribute(customer);
-        return VIEWS_CUSTOMERS_CREATE_OR_UPDATE_FORM;
+        model.addAttribute("customerDetailsActive","active");
+        return VIEWS_CUSTOMERS_CREATE_OR_UPDATE_FORM;    
     }
 
     @PostMapping("/customers/{customerId}/edit")
-    public String processUpdateCustomerForm(@Valid Customer customer, BindingResult result, @PathVariable("customerId") int customerId) {
+    public String processUpdateCustomerForm(@Valid Customer customer, BindingResult result, @PathVariable("customerId") int customerId, Model m) {
         if (result.hasErrors()) {
             return VIEWS_CUSTOMERS_CREATE_OR_UPDATE_FORM;
         } else {
         	customer.setId(customerId);
             this.customers.save(customer);
+            m.addAttribute("customerDetailsActive","active");
             return "redirect:/customers/{customerId}";
         }
         
@@ -157,7 +161,7 @@ class CustomerController {
      * @return a ModelMap with the model attributes for the view
      */
     @GetMapping("/customers/{customerId}")
-    public ModelAndView showCustomer(@PathVariable("customerId") int customerId) {
+    public ModelAndView showCustomer(@PathVariable("customerId") int customerId, Model m) {
     	
         ModelAndView mav = new ModelAndView("customers/customerDetails");
         mav.addObject(this.customers.findById(customerId));
@@ -170,6 +174,7 @@ class CustomerController {
         }
         System.out.println("MAV: " + mav.getModel().toString() + "\n");
         this.currentDiaplayedCustomerId = customerId;
+        m.addAttribute("customerDetailsActive","active");
         return mav;
     }
     

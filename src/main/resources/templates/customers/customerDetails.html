@@ -10,19 +10,34 @@
 
   <body th:object="${customer}">
   
-  
-    <h2>Customer Information</h2>
-    <h3 th:object="${customer}"  th:text="*{firstName + ' ' + lastName}"></h3>
-    <h2>Mobile phone number</h2>
-    <h3 th:object="${customer}"  th:text="*{mobilePhone}"></h3>
-    <h2>Address</h2>
-    <h3 th:object="${customer}"  th:text="*{address}"></h3>
-    <h2>PassportSerialNumber</h2>
-    <h3 th:object="${customer}"  th:text="*{passportSerial}"></h3>
-    <h2>test stub[]</h2>
-    <h3 th:object="${customer}"  th:text="*{type}"></h3>
-    <h2>Assigned support</h2>
-    <h3 th:object="${customer}"  th:text="*{worker.firstName + ' ' + worker.lastName}"></h3>
+	<h2>Customer information</h2>
+  	
+	 <table class="table table-striped" th:object="${customer}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
+      </tr>
+       <tr>
+        <th>Mobile phone number</th>
+        <td><b  th:text="*{mobilePhone}"></b></td>
+      </tr>
+       <tr>
+        <th>Address</th>
+        <td><b th:text="*{address}"></b></td>
+      </tr>
+       <tr>
+        <th>PassportSerialNumber</th>
+        <td><b th:text="*{passportSerial}"></b></td>
+      </tr>
+       <tr>
+        <th>Customer type</th>
+        <td><b th:text="*{type}"></b></td>
+      </tr>
+      <tr>
+        <th>Assigned support</th>
+        <td><b th:text="*{worker.firstName + ' ' + worker.lastName}"></b></td>
+      </tr>
+      </table>
   
   	<h2>Bank Accounts</h2>
   	

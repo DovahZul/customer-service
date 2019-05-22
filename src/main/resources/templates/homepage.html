@@ -22,11 +22,14 @@
  <table id="customers" class="table table-striped">
         <thead>
         <tr>
+        	<th style="width: 150px;">ID</th>
             <th style="width: 150px;">Name</th>
             <th style="width: 150px;">Mobile</th>
             <th style="width: 150px;">Passport serial</th>
             <th style="width: 150px;">Address</th>
             <th style="width: 150px;">Status</th>
+            <th style="width: 150px;">Customer type</th>
+            <th style="width: 150px;">Assigned worker</th>
 
         </tr>
         </thead>
@@ -50,12 +53,13 @@
 				  <td>
 				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.status}"/></a>
 				  </td>
-				  <td>
-				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.worker}"/></a>
-			  </td>	
-			  <td>
+				   <td>
 				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.type}"/></a>
-			  </td>	
+			  		</td>	
+				  <td>
+				      <a th:href="@{/customers/__${customer.id}__}" th:text="${customer.worker.firstName}+','+${customer.worker.lastName}"/></a>
+		  		  </td>	
+			 
 			  <td>
 			  <a th:href="@{/customers/{id}/edit(id=${customer.id})}" class="btn btn-default">Edit</a>
     			</td>

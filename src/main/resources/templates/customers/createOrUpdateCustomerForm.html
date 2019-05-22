@@ -1,5 +1,4 @@
-<html xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{fragments/layout :: layout (~{::body},'customers')}">
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/navbar::compositor (~{::body})}" >
 
 <head>
   <meta charset="utf-8">
@@ -7,16 +6,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-
-
-
-
 </head>
 
 <body>
 
-  <h2>Owner</h2>
+  <h2>Customer</h2>
   <form th:object="${customer}" class="form-horizontal" id="add-customer-form" method="post">
     <div class="form-group has-feedback">
       <input
