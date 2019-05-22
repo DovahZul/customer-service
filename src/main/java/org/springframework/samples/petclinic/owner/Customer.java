@@ -81,13 +81,13 @@ public class Customer extends Person {
     
     @ManyToOne
     @JoinColumn(name = "type_id")
-    private PetType type;
+    private CustomerType type;
     
-    public PetType getType() {
+    public CustomerType getType() {
         return this.type;
     }
 
-    public void setType(PetType type) {
+    public void setType(CustomerType type) {
         this.type = type;
     }
     

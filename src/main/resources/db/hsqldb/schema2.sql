@@ -7,11 +7,11 @@ DROP TABLE deposits IF EXISTS;
 DROP TABLE types IF EXISTS;
 
 
-CREATE TABLE types (
+CREATE TABLE customer_types (
   id   INTEGER IDENTITY PRIMARY KEY,
   name VARCHAR(80)
  );
- CREATE INDEX types_name ON types (name);
+ CREATE INDEX customer_types_name ON customer_types (name);
  
  CREATE TABLE currency_types (
   id   INTEGER IDENTITY PRIMARY KEY,

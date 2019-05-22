@@ -67,9 +67,9 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
     @Transactional(readOnly = true)
     Collection<Customer> getAll();
     
-    @Query("SELECT ptype FROM PetType ptype ORDER BY ptype.name")
+    @Query("SELECT customertype FROM CustomerType customertype ORDER BY customertype.name")
     @Transactional(readOnly = true)
-    List<PetType> findPetTypes();
+    List<CustomerType> findCustomerTypes();
     
     @Query("SELECT worker FROM Worker worker ORDER BY worker.firstName")
     @Transactional(readOnly = true)

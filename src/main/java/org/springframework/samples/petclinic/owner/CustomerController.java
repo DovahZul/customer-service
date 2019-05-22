@@ -133,8 +133,8 @@ class CustomerController {
     
     
     @ModelAttribute("types")
-    public Collection<PetType> populatePetTypes() {
-        return customers.findPetTypes();
+    public Collection<CustomerType> populateCustomerTypes() {
+        return customers.findCustomerTypes();
     }
     
     @ModelAttribute("workers")

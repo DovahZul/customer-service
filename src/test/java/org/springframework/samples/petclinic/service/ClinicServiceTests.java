@@ -30,7 +30,7 @@ import org.springframework.samples.petclinic.owner.Owner;
 import org.springframework.samples.petclinic.owner.OwnerRepository;
 import org.springframework.samples.petclinic.owner.Pet;
 import org.springframework.samples.petclinic.owner.PetRepository;
-import org.springframework.samples.petclinic.owner.PetType;
+import org.springframework.samples.petclinic.owner.CustomerType;
 import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.samples.petclinic.visit.Visit;
@@ -138,11 +138,11 @@ public class ClinicServiceTests {
 
     @Test
     public void shouldFindAllPetTypes() {
-        Collection<PetType> petTypes = this.pets.findPetTypes();
+        Collection<CustomerType> petTypes = this.pets.findPetTypes();
 
-        PetType petType1 = EntityUtils.getById(petTypes, PetType.class, 1);
+        CustomerType petType1 = EntityUtils.getById(petTypes, CustomerType.class, 1);
         assertThat(petType1.getName()).isEqualTo("cat");
-        PetType petType4 = EntityUtils.getById(petTypes, PetType.class, 4);
+        CustomerType petType4 = EntityUtils.getById(petTypes, CustomerType.class, 4);
         assertThat(petType4.getName()).isEqualTo("snake");
     }
 
@@ -154,8 +154,8 @@ public class ClinicServiceTests {
 
         Pet pet = new Pet();
         pet.setName("bowser");
-        Collection<PetType> types = this.pets.findPetTypes();
-        pet.setType(EntityUtils.getById(types, PetType.class, 2));
+        Collection<CustomerType> types = this.pets.findPetTypes();
+        pet.setType(EntityUtils.getById(types, CustomerType.class, 2));
         pet.setBirthDate(LocalDate.now());
         owner6.addPet(pet);
         assertThat(owner6.getPets().size()).isEqualTo(found + 1);

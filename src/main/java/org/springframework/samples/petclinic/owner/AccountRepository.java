@@ -36,8 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface AccountRepository extends Repository<Account, Integer> {
 
     /**
-     * Retrieve all {@link PetType}s from the data store.
-     * @return a Collection of {@link PetType}s.
+     * Retrieve all {@link CustomerType}s from the data store.
+     * @return a Collection of {@link CustomerType}s.
      */
     @Query("SELECT acctype FROM CurrencyType acctype ORDER BY acctype.name")
     @Transactional(readOnly = true)

@@ -34,8 +34,8 @@ import org.springframework.transaction.annotation.Transactional;
 public interface WorkerRepository extends Repository<Worker, Integer> {
 
     /**
-     * Retrieve all {@link PetType}s from the data store.
-     * @return a Collection of {@link PetType}s.
+     * Retrieve all {@link CustomerType}s from the data store.
+     * @return a Collection of {@link CustomerType}s.
      */
     @Query("SELECT worker FROM Worker worker ORDER BY worker.lastName")
     @Transactional(readOnly = true)

@@ -51,7 +51,7 @@ public class PetTypeFormatterTests {
 
     @Test
     public void testPrint() {
-        PetType petType = new PetType();
+        CustomerType petType = new CustomerType();
         petType.setName("Hamster");
         String petTypeName = this.petTypeFormatter.print(petType, Locale.ENGLISH);
         assertEquals("Hamster", petTypeName);
@@ -60,7 +60,7 @@ public class PetTypeFormatterTests {
     @Test
     public void shouldParse() throws ParseException {
         Mockito.when(this.pets.findPetTypes()).thenReturn(makePetTypes());
-        PetType petType = petTypeFormatter.parse("Bird", Locale.ENGLISH);
+        CustomerType petType = petTypeFormatter.parse("Bird", Locale.ENGLISH);
         assertEquals("Bird", petType.getName());
     }
 
@@ -73,16 +73,16 @@ public class PetTypeFormatterTests {
     /**
      * Helper method to produce some sample pet types just for test purpose
      *
-     * @return {@link Collection} of {@link PetType}
+     * @return {@link Collection} of {@link CustomerType}
      */
-    private List<PetType> makePetTypes() {
-        List<PetType> petTypes = new ArrayList<>();
-        petTypes.add(new PetType() {
+    private List<CustomerType> makePetTypes() {
+        List<CustomerType> petTypes = new ArrayList<>();
+        petTypes.add(new CustomerType() {
             {
                 setName("Dog");
             }
         });
-        petTypes.add(new PetType() {
+        petTypes.add(new CustomerType() {
             {
                 setName("Bird");
             }
