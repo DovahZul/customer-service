@@ -63,7 +63,7 @@ public interface CustomerRepository extends Repository<Customer, Integer> {
     @Query("DELETE FROM Customer customer WHERE customer.id =:cust_id") //do not left spaces between : and values ! >_<
 	void deleteById(@Param("cust_id") Integer id);
     
-    @Query("SELECT customer FROM Customer customer")
+    @Query("SELECT customer FROM Customer customer order by customer.firstName")
     @Transactional(readOnly = true)
     Collection<Customer> getAll();
     
