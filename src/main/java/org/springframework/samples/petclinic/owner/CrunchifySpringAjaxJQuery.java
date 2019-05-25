@@ -18,12 +18,15 @@ import java.util.Random;
 public class CrunchifySpringAjaxJQuery {
 	
 	  private final CustomerRepository customers;
+	  private final HouseRepository houses;
 
 
-	    public CrunchifySpringAjaxJQuery(CustomerRepository bankService) {
+	    public CrunchifySpringAjaxJQuery(CustomerRepository bankService, HouseRepository nedvijimost) {
 	        this.customers = bankService;
+	        this.houses = nedvijimost;
 	    }
- 
+	    
+
     @RequestMapping("/ajax")
     public ModelAndView helloAjaxTest() {
         return new ModelAndView("ajax", "message", "Crunchify Spring MVC with Ajax and JQuery Demo..");
@@ -31,14 +34,14 @@ public class CrunchifySpringAjaxJQuery {
  
     @RequestMapping(value = "/ajaxtest", method = RequestMethod.GET)
     public @ResponseBody
-    String getTime() {
+    Collection<House> getTime() {
  
         Random rand = new Random();  
         float r = rand.nextFloat() * 100;
         String result = "<br>Next Random # is <b>" + r + "</b>. Generated on <b>" + new Date().toString() + "</b>";
         String result2 = new String("{'name': 'name1','score':'30'},{'name': 'name2','score':'50'}");
         System.out.println("Debug Message from CrunchifySpringAjaxJQuery Controller.." + new Date().toString());
-        return customers.getAll().toString();
+        return houses.getAll();
     }
 }
 

@@ -43,3 +43,5 @@ INSERT INTO accounts VALUES (10, 6, 345 , 2);
 INSERT INTO credits VALUES (1, 1, 'Details about credit.', 0.3, 500, 200, '2010-09-07', '2014-09-07', true);
 
 INSERT INTO deposits VALUES (1, 1, 0.3, 500, 200, '2010-09-07', '2014-09-07', true);
+
+INSERT INTO houses VALUES (1, 'kadastr1', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', 'date_doc1', 'fio_host1', 'passport1', 0.4, 2005);

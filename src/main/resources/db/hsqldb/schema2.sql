@@ -6,6 +6,40 @@ DROP TABLE deposits IF EXISTS;
 
 DROP TABLE types IF EXISTS;
 
+CREATE TABLE houses (
+	
+	id INTEGER IDENTITY PRIMARY KEY, 
+	kadastr VARCHAR(20),
+	address VARCHAR(20),
+	disctrict VARCHAR(15),
+	land VARCHAR(10),
+	year INTEGER,
+	material VARCHAR(20),
+	base VARCHAR(20),
+	comment VARCHAR(50),
+	wear FLOAT,
+	flow INTEGER,
+	line FLOAT,
+	quare FLOAT,
+	flats INTEGER,
+	elevator BOOLEAN,
+	flat INTEGER,
+	storey INTEGER,
+	rooms INTEGER,
+	square_flat FLOAT,
+	dwell FLOAT,
+	branch FLOAT,
+	balcony FLOAT,
+	height FLOAT,
+	recorrd INTEGER,
+	document VARCHAR(30),
+	date_doc VARCHAR(40),
+	fio_host VARCHAR(50),
+	passport VARCHAR(50),
+	part FLOAT,
+	born INTEGER
+);
+
 
 CREATE TABLE customer_types (
   id   INTEGER IDENTITY PRIMARY KEY,
