@@ -209,15 +209,15 @@ public class House extends BaseEntity {
         this.line = value;
     } 
     
-    @Column(name = "quare")
-    private Float quare;
+    @Column(name = "square")
+    private Float square;
     
     public Float getSquare() {
-        return this.quare;
+        return this.square;
     }
 
     public void setSquare(Float value) {
-        this.quare = value;
+        this.square = value;
     } 
     
     @Column(name = "flats")

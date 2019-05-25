@@ -3,6 +3,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,20 +28,28 @@ public class CrunchifySpringAjaxJQuery {
 	    }
 	    
 
-    @RequestMapping("/ajax")
-    public ModelAndView helloAjaxTest() {
-        return new ModelAndView("ajax", "message", "Crunchify Spring MVC with Ajax and JQuery Demo..");
-    }
+	    @RequestMapping( method=RequestMethod.GET, value="/mainView" )
+	    public String getMainView( ) {        
+	        /* do all your normal stuff here to build your primary NON-ajax view
+	         * in the same way you always do
+	         */    
+	    	return "ajaxexample";
+	    }
  
-    @RequestMapping(value = "/ajaxtest", method = RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET, value="/subView")
     public @ResponseBody
-    Collection<House> getTime() {
+    Collection<House> getTime( Model m) {
+    	
+    	System.out.println("Responce from JQuery controller!");
  
         Random rand = new Random();  
         float r = rand.nextFloat() * 100;
         String result = "<br>Next Random # is <b>" + r + "</b>. Generated on <b>" + new Date().toString() + "</b>";
         String result2 = new String("{'name': 'name1','score':'30'},{'name': 'name2','score':'50'}");
         System.out.println("Debug Message from CrunchifySpringAjaxJQuery Controller.." + new Date().toString());
+        //m.addAttribute("houses", houses.getAll());
+       ///m.addAttribute("qwe", "qwe");
+        //return new ModelAndView( "ajaxexample" );
         return houses.getAll();
     }
 }

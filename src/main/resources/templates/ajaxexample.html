@@ -1,0 +1,88 @@
+<html>
+<head>
+<TITLE>Crunchify - Spring MVC Example with AJAX call</TITLE>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style type="text/css">
+body {
+    background-image:
+        url('https://cdn.crunchify.com/wp-content/uploads/2013/03/Crunchify.bg_.300.png');
+}
+</style>
+
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+    function doAjaxPost() {
+    	//console.log("asdasdasdasd");
+    	//window.alert(5 + 6);
+
+        $.ajax({
+            type: "GET",
+            url: "/subView",
+            success: function(response) {
+                //$("#subViewDiv").html( response );
+            	console.log(response);
+            	console.log("doAjaxResponce() called");
+            	//var json_obj = $.parseJSON(response);//parse JSON
+            	 var output="<tr>";
+                 for (var i in response) 
+                 {
+                     output+="<td>" + response[i].kadastr + "</td>";
+                     output+="<td>" + response[i].address + "</td>";
+                     output+="<td>" + response[i].disctrict + "</td>";
+                     output+="<td>" + response[i].land + "</td>";
+                     output+="<td>" + response[i].year + "</td>";
+                     output+="<td>" + response[i].material + "</td>";
+                     output+="<td>" + response[i].base + "</td>";
+                     output+="<td>" + response[i].comment + "</td>";
+                     output+="<td>" + response[i].wear + "</td>";
+                     output+="<td>" + response[i].flow + "</td>";
+                     output+="<td>" + response[i].line + "</td>";
+                     output+="<td>" + response[i].square + "</td>";
+                     output+="<td>" + response[i].flats + "</td>";
+                     console.log(response[i]);
+                 }
+                 output+="</tr>";
+                 
+                 $('#subViewDiv').html(output);
+             },
+     		 //dataType: "json",//set to JSON,
+		 	error: function(req, err){ console.log('my message ' + err); $('#subViewDiv').html(err);}
+        });
+    }
+    function debug()
+    {
+    	console.log("AAAAAAAAAA");
+    }
+</script>
+
+ 
+
+</head>
+ 
+<body>
+<div class="container-fluid">
+    <input class="btn btn-default" type="button" value="GO!" onclick="doAjaxPost()" />
+    <input class="btn btn-default" type="button" value="print" onclick="debug()" />
+	<table class="table table-striped">
+	<thead >
+			<th style="width: 150px;">kadastr</th>
+            <th style="width: 150px;">address</th>
+            <th style="width: 150px;">disctrict</th>
+            <th style="width: 150px;">land</th>
+            <th style="width: 150px;">year</th>
+            <th style="width: 150px;">material</th>
+            <th style="width: 150px;">base</th>
+            <th style="width: 150px;">comment</th>
+            <th style="width: 150px;">wear</th>
+            <th style="width: 150px;">flow</th>
+            <th style="width: 150px;">line</th>
+            <th style="width: 150px;">square</th>
+            <th style="width: 150px;">flats</th>
+    </thead>
+    <tbody id="subViewDiv">
+    
+    </tbody>
+	</table>
+	</div>
+</body>
+</html>

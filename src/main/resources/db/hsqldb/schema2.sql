@@ -20,7 +20,7 @@ CREATE TABLE houses (
 	wear FLOAT,
 	flow INTEGER,
 	line FLOAT,
-	quare FLOAT,
+	square FLOAT,
 	flats INTEGER,
 	elevator BOOLEAN,
 	flat INTEGER,
