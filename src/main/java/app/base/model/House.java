@@ -93,15 +93,15 @@ public class House extends BaseEntity {
     } 
     
     
-    @Column(name = "disctrict")
-    private String disctrict;
+    @Column(name = "district")
+    private String district;
     
-    public String getDistrics() {
-        return this.disctrict;
+    public String getDistrict() {
+        return this.district;
     }
 
     public void setDistrict(String value) {
-        this.disctrict = value;
+        this.district = value;
     } 
     
     @Column(name = "land")

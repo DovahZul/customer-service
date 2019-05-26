@@ -1,0 +1,39 @@
+<!-- <html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/navbar::compositor (~{::body})}" > -->
+  <html>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<body>
+
+  <h2>
+    <th:block th:if="${house['new']}">New House Record</th:block>
+  </h2>
+  <form th:object="${house}" class="form-horizontal" method="post">
+    <input type="hidden" name="id" th:value="*{id}" />
+    <div class="form-group has-feedback">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">House</label>
+         </div>
+      <input
+        th:replace="~{fragments/inputField :: input ('Kadastr', 'kadastr', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input (' Address:', 'address', 'text')}" />
+      <input
+      th:replace="~{fragments/inputField :: input ('District', 'district', 'text')}"/>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+       <button class="btn btn-default " value="@{/qqq}">Back</button>
+        <button
+          th:with="text=${house['new']} ? 'Add house' : 'Update house'"
+          class="btn btn-default" type="submit" th:text="${text}">Create house</button>
+         
+      </div>
+    </div>
+  </form>
+  
+
+</body>
+
+</html>

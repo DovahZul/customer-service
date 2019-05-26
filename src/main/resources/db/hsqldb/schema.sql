@@ -11,7 +11,7 @@ CREATE TABLE houses (
 	id INTEGER IDENTITY PRIMARY KEY, 
 	kadastr VARCHAR(20),
 	address VARCHAR(20),
-	disctrict VARCHAR(15),
+	district VARCHAR(15),
 	land VARCHAR(10),
 	year INTEGER,
 	material VARCHAR(20),

@@ -23,9 +23,10 @@ body {
             	console.log(response);
             	console.log("doAjaxResponce() called");
             	//var json_obj = $.parseJSON(response);//parse JSON
-            	 var output="<tr>";
+            	 var output;
                  for (var i in response) 
                  {
+                	 output+="<tr>";
                      output+="<td>" + response[i].kadastr + "</td>";
                      output+="<td>" + response[i].address + "</td>";
                      output+="<td>" + response[i].disctrict + "</td>";
@@ -39,9 +40,10 @@ body {
                      output+="<td>" + response[i].line + "</td>";
                      output+="<td>" + response[i].square + "</td>";
                      output+="<td>" + response[i].flats + "</td>";
+                     output+="</tr>";
                      console.log(response[i]);
                  }
-                 output+="</tr>";
+                 //output+="</tr>";
                  
                  $('#subViewDiv').html(output);
              },
@@ -53,6 +55,48 @@ body {
     {
     	console.log("AAAAAAAAAA");
     }
+    //document.getElementById('searchButton').onclick =
+    function doSearch()
+    {
+    	
+    	console.log("[JS]search button pressed");
+    	
+    	 $.get("/search", {term: $('#search_input').val()}, function(data) {
+    	    	// do your data manipulation and transformation here
+    	    	if($('#search_input').val()=='' || $.isEmptyObject(data))
+    	    		{
+    	    			$('#subViewDiv').html("");
+    	    			console.log("No results for query. Aborting.")
+    	    			return;
+    	    		}
+    	    	var output;
+    		 for (var i in data) 
+             {
+            	 output+="<tr>";
+                 output+="<td>" + data[i].kadastr + "</td>";
+                 output+="<td>" + data[i].address + "</td>";
+                 output+="<td>" + data[i].disctrict + "</td>";
+                 output+="<td>" + data[i].land + "</td>";
+                 output+="<td>" + data[i].year + "</td>";
+                 output+="<td>" + data[i].material + "</td>";
+                 output+="<td>" + data[i].base + "</td>";
+                 output+="<td>" + data[i].comment + "</td>";
+                 output+="<td>" + data[i].wear + "</td>";
+                 output+="<td>" + data[i].flow + "</td>";
+                 output+="<td>" + data[i].line + "</td>";
+                 output+="<td>" + data[i].square + "</td>";
+                 output+="<td>" + data[i].flats + "</td>";
+                 output+="</tr>";
+                 console.log(data[i]);
+             }
+             //output+="</tr>";
+             
+             $('#subViewDiv').html(output);
+    	    	
+    	    	});
+    }
+
+   
 </script>
 
  
@@ -60,9 +104,14 @@ body {
 </head>
  
 <body>
+<form class="form-inline my-2 my-lg-0">
+     
+    </form>
 <div class="container-fluid">
-    <input class="btn btn-default" type="button" value="GO!" onclick="doAjaxPost()" />
-    <input class="btn btn-default" type="button" value="print" onclick="debug()" />
+    <input class="btn btn-default" type="button" value="Show all" onclick="doAjaxPost()" />
+    <input class="btn btn-default" type="button" onclick="debug()" />
+    <input class="form-control mr-sm-2"  id="search_input" th:href="@{/}" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-default my-2 my-sm-0"  id="searchButton" onclick="doSearch()" type="submit">Search</button>
 	<table class="table table-striped">
 	<thead >
 			<th style="width: 150px;">kadastr</th>
@@ -84,5 +133,6 @@ body {
     </tbody>
 	</table>
 	</div>
+	<a class="btn btn-default" th:href="@{/subView/new}"  >Add record</a>
 </body>
 </html>
