@@ -7,6 +7,15 @@ body {
     background-image:
         url('https://cdn.crunchify.com/wp-content/uploads/2013/03/Crunchify.bg_.300.png');
 }
+h3{
+  alignment: center;
+  border: 3px solid green;
+}
+.class-logger{
+  display: block;
+  margin-left: 45%;
+  width: 40%;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -60,16 +69,23 @@ body {
     {
     	
     	console.log("[JS]search button pressed");
+    	$('#logger').html("");
+    	$('#subViewDiv').html("");
     	
     	 $.get("/search", {term: $('#search_input').val()}, function(data) {
     	    	// do your data manipulation and transformation here
     	    	if($('#search_input').val()=='' || $.isEmptyObject(data))
     	    		{
-    	    			$('#subViewDiv').html("");
+    	    			///$('#subViewDiv').html("");
     	    			console.log("No results for query. Aborting.")
+    	    			$('#logger').html("NO RESULTS FOUND");
     	    			return;
     	    		}
+    	    	else
+    	    		{
     	    	var output;
+    	    	
+    	    	
     		 for (var i in data) 
              {
             	 output+="<tr>";
@@ -92,8 +108,10 @@ body {
              //output+="</tr>";
              
              $('#subViewDiv').html(output);
+    	    		}
     	    	
     	    	});
+    	 
     }
 
    
@@ -132,6 +150,7 @@ body {
     
     </tbody>
 	</table>
+	<div alignment="center" class="class-logger" id="logger"></div>
 	</div>
 	<a class="btn btn-default" th:href="@{/subView/new}"  >Add record</a>
 </body>

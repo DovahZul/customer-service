@@ -45,3 +45,19 @@ INSERT INTO credits VALUES (1, 1, 'Details about credit.', 0.3, 500, 200, '2010-
 INSERT INTO deposits VALUES (1, 1, 0.3, 500, 200, '2010-09-07', '2014-09-07', true);
 
 INSERT INTO houses VALUES (1, 'kadastr1', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', 'date_doc1', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (2, 'ЖИзть на луне', 'луна', 'Темная', 'Каменистый', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (3, 'Я бэтмен', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (4, 'Леша', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (5, 'BV-400', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (6, 'Одесская прописка', 'где угодно', 'недорого', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (7, 'Пас. Кот', ' ща найдем', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+INSERT INTO houses VALUES (8, 'kadastr1', 'address1', 'district1', 'land1', 1536, 'material1', 'base1', 'comment1', 123.123, 30, 1.5, 2, 16, true, 5, 5, 3, 300, 40, 45, 50, 10, 444, 'document1', '2010-09-07', 'fio_host1', 'passport1', 0.4, 2005);
+
+

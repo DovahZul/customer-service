@@ -16,7 +16,7 @@ public interface HouseRepository extends Repository<House, Integer> {
     @Transactional(readOnly = true)
     Collection<House> getAll();
 	
-	@Query("SELECT house FROM House house WHERE house.kadastr like %:request%")
+	@Query("SELECT house FROM House house WHERE house.kadastr like %:request% OR house.district like %:request% OR house.address like %:request%")
 	@Transactional(readOnly = true)
 	Collection<House> getSearchMaches(@Param("request") String request);
 
