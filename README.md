@@ -1,3 +1,6 @@
-# ShadowClone
+# Bank accounts handling service
+[Import from bitbucket]
 
-First jump into SpringMVC abyss. [To delete]
+First jump into SpringMVC stack. 
+
+mvn spring-boot:run
