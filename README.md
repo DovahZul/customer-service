@@ -27,5 +27,7 @@ After that homepage will be available on localhost:8080
  - in progress
 #### How to run tests
  - in progress
+#### User guide
+ - in progress
 
 
